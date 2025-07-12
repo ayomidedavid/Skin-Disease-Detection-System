@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <nav style="width: 100%; display: flex; align-items: center; justify-content: space-between; background: #f8f9fa; padding: 18px 30px 18px 30px; border-radius: 10px; margin-bottom: 30px; box-shadow: 0 2px 6px rgba(0,0,0,0.04);">
+            <span style="font-size: 1.1rem; color: #333;">Welcome, {{ username }}!</span>
+            <span style="font-size: 1.5rem; color: #007bff; font-weight: 700; letter-spacing: 1px;">Skin Classification System</span>
+            <a href="/logout" style="background-color: #dc3545; color: #fff; padding: 10px 22px; border-radius: 6px; text-decoration: none; font-weight: 600;">Logout</a>
+        </nav>
+    
+        <div style="display: flex; flex-direction: column; align-items: stretch; justify-content: space-between; min-height: 350px; height: 400px; position: relative; gap: 0;">
+            <br>
+            <div style="width: 100%; max-width: 400px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; justify-content: flex-start;">
+                <h2 style="margin-bottom: 18px; text-align: center;">Classify a Skin Disease</h2>
+                <form method="POST" action="/predict" enctype="multipart/form-data" style="width: 100%; display: flex; flex-direction: column; align-items: center;">
+                    <div class="file-input-container" style="margin-bottom: 18px; width: 100%; display: flex; justify-content: center;">
+                        <label for="image" class="file-input-label">Choose Image</label>
+                        <input type="file" id="image" name="image" required onchange="this.previousElementSibling.innerText = this.files[0].name" />
+                    </div>
+                    <button type="submit" style="width: 100%; max-width: 200px;">Classify</button>
+                </form>
+            </div>
+            <div style="width: 100%; display: flex; justify-content: flex-start; align-items: flex-end;">
+                <a href="/history" style="margin: 18px 0 0 0; text-align: left; color: #6c757d; background: #f1f1f1; border-radius: 6px; padding: 10px 18px; text-decoration: none; font-weight: 500;">View Classification History</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

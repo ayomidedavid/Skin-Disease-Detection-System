@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body style="background: #e9ecef;">
+    <div class="container" style="text-align: left; background: #fff; border: 1.5px solid #e0e0e0; box-shadow: 0 4px 16px rgba(0,0,0,0.07); max-width: 420px;">
+        <h2 style="text-align: center; color: #007bff; margin-bottom: 18px;">Skin Classification System</h2>
+        <h1 style="text-align: center; color: #222;">Sign Up</h1>
+        <form method="POST" action="/signup">
+            <div style="margin-bottom: 16px;">
+                <label for="username" style="color: #333;">Username:</label><br>
+                <input type="text" id="username" name="username" required style="width: 100%; padding: 10px; margin-top: 6px; border-radius: 6px; border: 1.5px solid #b3c6e0; text-align: left; background: #f8f9fa; color: #222;" placeholder="Enter your username">
+            </div>
+            <div style="margin-bottom: 16px;">
+                <label for="password" style="color: #333;">Password:</label><br>
+                <input type="password" id="password" name="password" required style="width: 100%; padding: 10px; margin-top: 6px; border-radius: 6px; border: 1.5px solid #b3c6e0; text-align: left; background: #f8f9fa; color: #222;" placeholder="Enter your password">
+            </div>
+            <button type="submit" style="background: #28a745; color: #fff; font-weight: 600;">Sign Up</button>
+        </form>
+        <p style="margin-top: 18px; text-align: center;"> <a href="/login" style="color: white;">Login here</a></p>
+        <p style="margin-top: 18px; text-align: center;">Already have an account?</p>
+    </div>
+    </body>
+</html>

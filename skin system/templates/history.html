@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Classification History</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2 style="text-align: center; color: #007bff; margin-bottom: 18px;">Skin Classification System</h2>
+        <h3>Classification History for {{ username }}</h3>
+        <br>
+        
+        <div style="overflow-x:auto; margin-top: 18px;">
+            <table style="width:100%; border-collapse: collapse;">
+                <thead>
+                    <tr style="background-color: #f8f9fa;">
+                        <th style="padding: 10px; border: 1px solid #dee2e6;">Date</th>
+                        <th style="padding: 10px; border: 1px solid #dee2e6;">Image</th>
+                        <th style="padding: 10px; border: 1px solid #dee2e6;">Prediction</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for record in history %}
+                    <tr>
+                        <td style="padding: 10px; border: 1px solid #dee2e6;">{{ record['date'] }}</td>
+                        <td style="padding: 10px; border: 1px solid #dee2e6;"><img src="{{ url_for('static', filename='uploads/' + record['image']) }}" width="100" style="border-radius: 8px;"></td>
+                        <td style="padding: 10px; border: 1px solid #dee2e6;">{{ record['prediction'] }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <br>
+        <a href="/dashboard" style="margin-bottom: 18px; background-color: #007bff;">Back to Dashboard</a>
+    </div>
+</body>
+</html>
